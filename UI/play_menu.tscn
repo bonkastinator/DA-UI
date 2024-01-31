@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpujjirrp4tm3"]
+
+[ext_resource type="Script" path="res://UI/play_menu.gd" id="1_84pdc"]
+[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="1_fburv"]
+[ext_resource type="StyleBox" uid="uid://ejiyo8851ahu" path="res://src/theme_hover.tres" id="2_m1t01"]
+[ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="2_y28gb"]
+[ext_resource type="StyleBox" uid="uid://8wyb12cf13bi" path="res://src/theme.tres" id="3_3eofj"]
+[ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="3_4xwm2"]
+[ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="4_bifvv"]
+[ext_resource type="StyleBox" uid="uid://nmi8gg6oox2x" path="res://src/theme_pressed.tres" id="4_yuwv7"]
+[ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="5_2tmk7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl73y"]
+
+[sub_resource type="Theme" id="Theme_epla5"]
+Button/font_sizes/font_size = 128
+Button/fonts/font = ExtResource("1_fburv")
+Button/styles/hover = ExtResource("2_m1t01")
+Button/styles/normal = ExtResource("3_3eofj")
+Button/styles/pressed = ExtResource("4_yuwv7")
+TextEdit/font_sizes/font_size = 128
+TextEdit/fonts/font = ExtResource("1_fburv")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_fl73y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmwfv"]
+bg_color = Color(0.466667, 0.466667, 0.466667, 0.760784)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="PlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_epla5")
+script = ExtResource("1_84pdc")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_y28gb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 36.0
+offset_right = 600.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="LocalSessionButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Local Session"
+
+[node name="HostSessionButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Host Session"
+
+[node name="JoinSessionButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Join Session"
+
+[node name="EnterKeyTextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+offset_left = 760.0
+offset_top = 818.0
+offset_right = 1560.0
+offset_bottom = 975.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_fburv")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxFlat_rmwfv")
+placeholder_text = "Enter Key: "
+scroll_fit_content_height = true
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -110.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="ReturnButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("3_4xwm2")
+expand_mode = 1
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bifvv")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2tmk7")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="VBoxContainer/LocalSessionButton" to="." method="_on_local_session_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/LocalSessionButton" to="." method="_on_local_session_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HostSessionButton" to="." method="_on_host_session_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HostSessionButton" to="." method="_on_host_session_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/JoinSessionButton" to="." method="_on_join_session_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/JoinSessionButton" to="." method="_on_join_session_button_pressed"]
+[connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

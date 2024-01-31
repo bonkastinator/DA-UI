@@ -41,7 +41,7 @@ func _on_how_to_button_mouse_entered():
 
 func _on_play_button_pressed():
 	$ButtonClickSound.play()
-	#get_tree().change_scene_to_file()
+	get_tree().change_scene_to_file("res://UI/play_menu.tscn")
 
 
 func _on_options_button_pressed():
