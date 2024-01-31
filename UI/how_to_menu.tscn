@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1boyjcud6qs3"]
+
+[ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="1_1wu1f"]
+[ext_resource type="Script" path="res://UI/how_to_menu.gd" id="1_ay7se"]
+[ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="2_lvfs0"]
+[ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="3_1vtg8"]
+[ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="4_3fqgp"]
+
+[node name="HowToMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ay7se")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_1wu1f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -110.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="ReturnButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_lvfs0")
+expand_mode = 1
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1vtg8")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3fqgp")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

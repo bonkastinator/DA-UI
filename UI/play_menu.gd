@@ -30,13 +30,20 @@ func _on_join_session_button_mouse_entered():
 
 func _on_local_session_button_pressed():
 	$ButtonClickSound.play()
-	#	lobby screen
+	# join local lobby  
+	# join test lobby ui
+	get_tree().change_scene_to_file("res://UI/lobby_menu.tscn")
 
 func _on_host_session_button_pressed():
 	$ButtonClickSound.play()
-	# lobby screen
+	# create online lobby (get key)
 
 func _on_join_session_button_pressed():
 	$ButtonClickSound.play()
-	# lobby screen
+	# join online lobby screen (use key for private lobby, leave blank for public lobby) 
+
+
+
+
+
 

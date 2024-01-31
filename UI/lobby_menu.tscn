@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=3 uid="uid://810i3nm7022d"]
+
+[ext_resource type="Script" path="res://UI/lobby_menu.gd" id="1_pfxvg"]
+[ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="2_ijp3w"]
+[ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="3_2ikos"]
+[ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="4_s8n0s"]
+[ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="5_3o5ma"]
+[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="6_i855i"]
+[ext_resource type="StyleBox" uid="uid://c7b0lyqnqw2dt" path="res://src/themes/ready_button/theme_ready.tres" id="7_tvu6e"]
+[ext_resource type="ButtonGroup" uid="uid://cwqy0gd6sadeq" path="res://src/toggle_group.tres" id="10_dgpw0"]
+[ext_resource type="StyleBox" uid="uid://b70np661u4eo4" path="res://src/themes/ready_button/theme_hover_ready.tres" id="10_k3dgs"]
+[ext_resource type="Texture2D" uid="uid://7bhso8sxarja" path="res://Grafik/FractionIcons/starseraphs_icon.png" id="10_qao7c"]
+[ext_resource type="StyleBox" uid="uid://tlq3ecj630fw" path="res://src/themes/ready_button/theme_pressed_ready.tres" id="11_0pi2w"]
+[ext_resource type="Texture2D" uid="uid://cy6qlp4cq6uxy" path="res://Grafik/FractionIcons/olympus_icon.png" id="11_vb68r"]
+[ext_resource type="Texture2D" uid="uid://c6tqni1lt10dp" path="res://Grafik/FractionIcons/darktemplars_icon.png" id="12_7ypcn"]
+
+[sub_resource type="Theme" id="Theme_uf2ai"]
+Button/font_sizes/font_size = 72
+Button/fonts/font = ExtResource("6_i855i")
+Button/styles/focus = ExtResource("7_tvu6e")
+Button/styles/hover = ExtResource("10_k3dgs")
+Button/styles/normal = ExtResource("10_k3dgs")
+Button/styles/pressed = ExtResource("11_0pi2w")
+
+[sub_resource type="Theme" id="Theme_fdgxm"]
+
+[node name="LobbyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfxvg")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ijp3w")
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -110.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="ReturnButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("3_2ikos")
+expand_mode = 1
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s8n0s")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3o5ma")
+bus = &"SFX"
+
+[node name="GameStartButton" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -180.0
+offset_right = 150.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_uf2ai")
+theme_override_fonts/font = ExtResource("6_i855i")
+theme_override_font_sizes/font_size = 72
+toggle_mode = true
+text = "Ready?"
+
+[node name="ChooseFraction" type="Node" parent="."]
+
+[node name="ChooseStarSeraphsButton" type="Button" parent="ChooseFraction"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = 170.0
+offset_right = -312.0
+offset_bottom = 278.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+toggle_mode = true
+button_group = ExtResource("10_dgpw0")
+icon = ExtResource("10_qao7c")
+icon_alignment = 1
+
+[node name="ChooseOlympusButton" type="Button" parent="ChooseFraction"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -54.0
+offset_right = -312.0
+offset_bottom = 54.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+toggle_mode = true
+button_group = ExtResource("10_dgpw0")
+icon = ExtResource("11_vb68r")
+icon_alignment = 1
+
+[node name="ChooseDarkTemplarsButton" type="Button" parent="ChooseFraction"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -280.0
+offset_right = -312.0
+offset_bottom = -172.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme = SubResource("Theme_fdgxm")
+toggle_mode = true
+button_group = ExtResource("10_dgpw0")
+icon = ExtResource("12_7ypcn")
+icon_alignment = 1
+
+[connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="mouse_entered" from="GameStartButton" to="." method="_on_game_start_button_mouse_entered"]
+[connection signal="pressed" from="GameStartButton" to="." method="_on_game_start_button_pressed"]
+[connection signal="toggled" from="GameStartButton" to="." method="_on_game_start_button_toggled"]
+[connection signal="toggled" from="ChooseFraction/ChooseStarSeraphsButton" to="." method="_on_choose_star_seraphs_button_toggled"]
+[connection signal="toggled" from="ChooseFraction/ChooseOlympusButton" to="." method="_on_choose_olympus_button_toggled"]
+[connection signal="toggled" from="ChooseFraction/ChooseDarkTemplarsButton" to="." method="_on_choose_dark_templars_button_toggled"]

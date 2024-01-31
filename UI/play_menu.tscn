@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpujjirrp4tm3"]
+[gd_scene load_steps=12 format=3 uid="uid://dpujjirrp4tm3"]
 
 [ext_resource type="Script" path="res://UI/play_menu.gd" id="1_84pdc"]
 [ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="1_fburv"]
-[ext_resource type="StyleBox" uid="uid://ejiyo8851ahu" path="res://src/theme_hover.tres" id="2_m1t01"]
+[ext_resource type="StyleBox" uid="uid://ejiyo8851ahu" path="res://src/themes/button/theme_hover.tres" id="2_m1t01"]
 [ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="2_y28gb"]
-[ext_resource type="StyleBox" uid="uid://8wyb12cf13bi" path="res://src/theme.tres" id="3_3eofj"]
+[ext_resource type="StyleBox" uid="uid://8wyb12cf13bi" path="res://src/themes/button/theme.tres" id="3_3eofj"]
 [ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="3_4xwm2"]
 [ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="4_bifvv"]
-[ext_resource type="StyleBox" uid="uid://nmi8gg6oox2x" path="res://src/theme_pressed.tres" id="4_yuwv7"]
+[ext_resource type="StyleBox" uid="uid://nmi8gg6oox2x" path="res://src/themes/button/theme_pressed.tres" id="4_yuwv7"]
 [ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="5_2tmk7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl73y"]
@@ -22,14 +22,6 @@ TextEdit/font_sizes/font_size = 128
 TextEdit/fonts/font = ExtResource("1_fburv")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_fl73y")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmwfv"]
-bg_color = Color(0.466667, 0.466667, 0.466667, 0.760784)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-
 [node name="PlayMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -41,6 +33,7 @@ theme = SubResource("Theme_epla5")
 script = ExtResource("1_84pdc")
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_y28gb")
@@ -72,18 +65,16 @@ text = "Host Session"
 layout_mode = 2
 text = "Join Session"
 
-[node name="EnterKeyTextEdit" type="TextEdit" parent="."]
-layout_mode = 2
+[node name="EnterKeyLineEdit" type="LineEdit" parent="."]
+texture_filter = 2
+layout_mode = 0
 offset_left = 760.0
-offset_top = 818.0
-offset_right = 1560.0
-offset_bottom = 975.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("1_fburv")
-theme_override_font_sizes/font_size = 128
-theme_override_styles/normal = SubResource("StyleBoxFlat_rmwfv")
+offset_top = 820.0
+offset_right = 1160.0
+offset_bottom = 899.0
+theme_override_font_sizes/font_size = 50
 placeholder_text = "Enter Key: "
-scroll_fit_content_height = true
+max_length = 12
 
 [node name="ReturnButton" type="Button" parent="."]
 layout_mode = 1

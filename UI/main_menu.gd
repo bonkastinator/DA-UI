@@ -58,5 +58,5 @@ func _on_credits_button_pressed():
 
 func _on_how_to_button_pressed():
 	$ButtonClickSound.play()
-	#get_tree().change_scene_to_file("res://UI/how_to_menu.tscn")
+	get_tree().change_scene_to_file("res://UI/how_to_menu.tscn")
 
