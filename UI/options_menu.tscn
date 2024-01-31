@@ -1,0 +1,172 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsmuoef2xtpcx"]
+
+[ext_resource type="Script" path="res://UI/options_menu.gd" id="1_0qwny"]
+[ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="2_ifr6r"]
+[ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="3_skdvy"]
+[ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="4_rc4fh"]
+[ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="5_6hjuu"]
+[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="6_5phef"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qwny")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ifr6r")
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -110.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="ReturnButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("3_skdvy")
+expand_mode = 1
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rc4fh")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6hjuu")
+bus = &"SFX"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="DisplayMode" type="Label" parent="Node"]
+visible = false
+texture_filter = 2
+offset_left = 499.0
+offset_top = 351.0
+offset_right = 799.0
+offset_bottom = 451.0
+theme_override_fonts/font = ExtResource("6_5phef")
+theme_override_font_sizes/font_size = 45
+text = "Display Mode"
+
+[node name="DisplayModeButtons" type="OptionButton" parent="Node"]
+visible = false
+offset_left = 830.0
+offset_top = 360.0
+offset_right = 1030.0
+offset_bottom = 390.0
+
+[node name="MasterVolume" type="Label" parent="Node"]
+texture_filter = 2
+offset_left = 498.0
+offset_top = 420.0
+offset_right = 799.0
+offset_bottom = 520.0
+theme_override_fonts/font = ExtResource("6_5phef")
+theme_override_font_sizes/font_size = 45
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Node"]
+unique_name_in_owner = true
+texture_filter = 2
+offset_left = 850.0
+offset_top = 420.0
+offset_right = 1050.0
+offset_bottom = 450.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="MusicVolume" type="Label" parent="Node"]
+texture_filter = 2
+offset_left = 499.0
+offset_top = 490.0
+offset_right = 800.0
+offset_bottom = 590.0
+theme_override_fonts/font = ExtResource("6_5phef")
+theme_override_font_sizes/font_size = 45
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Node"]
+unique_name_in_owner = true
+texture_filter = 2
+offset_left = 850.0
+offset_top = 490.0
+offset_right = 1050.0
+offset_bottom = 520.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="VoiceVolume" type="Label" parent="Node"]
+texture_filter = 2
+offset_left = 499.0
+offset_top = 560.0
+offset_right = 800.0
+offset_bottom = 660.0
+theme_override_fonts/font = ExtResource("6_5phef")
+theme_override_font_sizes/font_size = 45
+text = "Voice Volume
+"
+
+[node name="VoiceVolumeSlider" type="HSlider" parent="Node"]
+unique_name_in_owner = true
+texture_filter = 2
+offset_left = 850.0
+offset_top = 560.0
+offset_right = 1050.0
+offset_bottom = 590.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SFXVolume" type="Label" parent="Node"]
+texture_filter = 2
+offset_left = 499.0
+offset_top = 630.0
+offset_right = 800.0
+offset_bottom = 730.0
+theme_override_fonts/font = ExtResource("6_5phef")
+theme_override_font_sizes/font_size = 45
+text = "SFX Volume
+"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Node"]
+unique_name_in_owner = true
+texture_filter = 2
+offset_left = 850.0
+offset_top = 630.0
+offset_right = 1050.0
+offset_bottom = 660.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="item_selected" from="Node/DisplayModeButtons" to="." method="_on_display_mode_buttons_item_selected"]
+[connection signal="value_changed" from="Node/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="Node/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="Node/VoiceVolumeSlider" to="." method="_on_voice_volume_slider_value_changed"]
+[connection signal="value_changed" from="Node/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]

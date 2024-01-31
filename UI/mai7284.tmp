@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://dp4t3u0nctk8l"]
+
+[ext_resource type="Texture2D" uid="uid://c1x4u1m67vq8f" path="res://src/book-cover.png" id="1_0sjb3"]
+[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="1_4phi6"]
+[ext_resource type="StyleBox" uid="uid://ejiyo8851ahu" path="res://src/theme_hover.tres" id="1_ipu1j"]
+[ext_resource type="StyleBox" uid="uid://8wyb12cf13bi" path="res://src/theme.tres" id="1_m5pky"]
+[ext_resource type="Texture2D" uid="uid://dqod8fnhphxsl" path="res://src/testbackground.png" id="2_87amh"]
+[ext_resource type="Texture2D" uid="uid://bebk10b84ngks" path="res://src/magnifying-glass.png" id="2_mbpcv"]
+[ext_resource type="StyleBox" uid="uid://nmi8gg6oox2x" path="res://src/theme_pressed.tres" id="3_1x8jk"]
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="5_aoirk"]
+[ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="9_cqfyv"]
+[ext_resource type="AudioStream" uid="uid://bhjleqslqh68r" path="res://Audio/Sounds/button_click.wav" id="10_wukg6"]
+
+[sub_resource type="Theme" id="Theme_x0ht4"]
+Button/font_sizes/font_size = 128
+Button/fonts/font = ExtResource("1_4phi6")
+Button/styles/focus = ExtResource("3_1x8jk")
+Button/styles/hover = ExtResource("1_ipu1j")
+Button/styles/normal = ExtResource("1_m5pky")
+Button/styles/pressed = ExtResource("3_1x8jk")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+theme = SubResource("Theme_x0ht4")
+script = ExtResource("5_aoirk")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_87amh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = 40.0
+offset_right = 525.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = -180
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 850.0
+offset_top = 430.0
+offset_right = 950.0
+offset_bottom = 530.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="CreditsButton"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_0sjb3")
+expand_mode = 1
+
+[node name="HowToButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 740.0
+offset_top = 430.0
+offset_right = 840.0
+offset_bottom = 530.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="HowToButton"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_mbpcv")
+expand_mode = 1
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_cqfyv")
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wukg6")
+
+[connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="CreditsButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="HowToButton" to="." method="_on_how_to_button_mouse_entered"]
+[connection signal="pressed" from="HowToButton" to="." method="_on_how_to_button_pressed"]
