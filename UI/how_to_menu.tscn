@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_ay7se")
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_1wu1f")
@@ -39,8 +40,11 @@ offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 0
+focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="ReturnButton"]
+show_behind_parent = true
+texture_filter = 2
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0

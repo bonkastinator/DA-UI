@@ -55,14 +55,17 @@ scale = Vector2(0.5, 0.5)
 
 [node name="LocalSessionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Local Session"
 
 [node name="HostSessionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Host Session"
 
 [node name="JoinSessionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Join Session"
 
 [node name="EnterKeyLineEdit" type="LineEdit" parent="."]
@@ -72,8 +75,21 @@ offset_left = 760.0
 offset_top = 820.0
 offset_right = 1160.0
 offset_bottom = 899.0
+focus_mode = 1
 theme_override_font_sizes/font_size = 50
 placeholder_text = "Enter Key: "
+max_length = 6
+
+[node name="EnterNameLineEdit" type="LineEdit" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 760.0
+offset_top = 470.0
+offset_right = 1160.0
+offset_bottom = 549.0
+focus_mode = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Enter Name:"
 max_length = 12
 
 [node name="ReturnButton" type="Button" parent="."]
@@ -90,8 +106,11 @@ offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 0
+focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="ReturnButton"]
+show_behind_parent = true
+texture_filter = 2
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
@@ -113,5 +132,8 @@ bus = &"SFX"
 [connection signal="pressed" from="VBoxContainer/HostSessionButton" to="." method="_on_host_session_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/JoinSessionButton" to="." method="_on_join_session_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/JoinSessionButton" to="." method="_on_join_session_button_pressed"]
+[connection signal="text_changed" from="EnterKeyLineEdit" to="." method="_on_enter_key_line_edit_text_changed"]
+[connection signal="gui_input" from="EnterNameLineEdit" to="." method="_on_enter_name_line_edit_gui_input"]
+[connection signal="text_changed" from="EnterNameLineEdit" to="." method="_on_enter_name_line_edit_text_changed"]
 [connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

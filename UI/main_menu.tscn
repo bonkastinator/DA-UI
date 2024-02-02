@@ -54,16 +54,22 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
+focus_mode = 0
 theme_override_constants/outline_size = -180
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
+focus_mode = 0
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
+focus_mode = 0
 text = "Quit"
 
 [node name="CreditsButton" type="Button" parent="."]
@@ -80,9 +86,11 @@ offset_bottom = 530.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 0
+focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="CreditsButton"]
 show_behind_parent = true
+texture_filter = 2
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
@@ -103,9 +111,11 @@ offset_bottom = 530.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 0
+focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="HowToButton"]
 show_behind_parent = true
+texture_filter = 2
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0

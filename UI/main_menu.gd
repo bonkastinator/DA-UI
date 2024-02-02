@@ -19,6 +19,7 @@ func _set_volumes_from_user_preference():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Voice"), linear_to_db(user_prefs.voice_audio_level))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(user_prefs.sfx_audio_level))
 
+
 func _on_play_button_mouse_entered():
 	$ButtonHoverSound.play()
 

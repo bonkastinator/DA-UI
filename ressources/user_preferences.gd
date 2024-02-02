@@ -7,6 +7,8 @@ class_name UserPreferences extends Resource
 
 @export var action_events : Dictionary = {}
 
+@export var user_name : String = ""
+
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")
 	
