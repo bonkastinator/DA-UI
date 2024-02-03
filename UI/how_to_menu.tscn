@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1boyjcud6qs3"]
+[gd_scene load_steps=7 format=3 uid="uid://d1boyjcud6qs3"]
 
 [ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="1_1wu1f"]
 [ext_resource type="Script" path="res://UI/how_to_menu.gd" id="1_ay7se"]
 [ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="2_lvfs0"]
 [ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="3_1vtg8"]
 [ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="4_3fqgp"]
+[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="6_hwur8"]
 
 [node name="HowToMenu" type="Control"]
 layout_mode = 3
@@ -59,6 +60,41 @@ bus = &"SFX"
 [node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3fqgp")
 bus = &"SFX"
+
+[node name="HowToTextEdit" type="TextEdit" parent="."]
+texture_filter = 2
+offset_left = 350.0
+offset_top = 150.0
+offset_right = 1550.0
+offset_bottom = 970.0
+theme_override_colors/font_color = Color(0.898039, 0.898039, 0.898039, 1)
+theme_override_fonts/font = ExtResource("6_hwur8")
+theme_override_font_sizes/font_size = 24
+text = "Characters:
+	Hero: Fraction-dependent abilities, reinforces own characters
+	Melee: High DPS, short range, moderate health
+	Ranged: High DPS, long range, low health
+	Tank: Low DPS, short range, high health
+	Sniper: Low DPS, maximum range, low health
+
+Hit Points:
+	Each player starts with 100 hit points
+	Players lose hit points when losing battles, based on the remaining enemy characters
+	The game ends when a player reaches 0 hit points
+
+Rounds:
+	Each player draws cards and can buy and place characters or use spells
+	An Attack-Token initiates the combat phase, only one player can own the Attack-Token
+
+Augments:
+	In round 5, 10 and 15 each player can choose between 3 Augments offered 
+	Augments permanently affect the game board
+
+Playable Factions:
+	DarkTemplars: Shadow-Knight that clones himself during battle
+	Olympus: Elegant Ninja that taunt-flashes into battle and increases ally units heath
+	StarSeraphs: Deity that grows stronger with more ally units nearby "
+editable = false
 
 [connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

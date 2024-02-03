@@ -66,8 +66,29 @@ offset_bottom = 950.0
 theme_override_colors/font_color = Color(0.898039, 0.898039, 0.898039, 1)
 theme_override_fonts/font = ExtResource("6_erenf")
 theme_override_font_sizes/font_size = 24
-text = "Special thanks to myself
-lol."
+text = "Development Team:
+	Anton Xaver Edlinger
+	Valentin Fritz
+
+Art & Animation:
+	Valentin Fritz
+	Mona Hajszan
+
+Sound Design & Music:
+	Valentin Fritz
+
+Special Thanks:
+	MrOlympus
+	Pan Paulhofer
+	SolidProgramming
+
+Produced by:
+Valentin Fritz and Anton Xaver Edlinger
+
+
+
+
+© 2024 Valentin Fritz and Anton Xaver Edlinger. All rights reserved."
 editable = false
 
 [connection signal="mouse_entered" from="ReturnButton" to="." method="_on_return_button_mouse_entered"]

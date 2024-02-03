@@ -206,6 +206,7 @@ expand_mode = 2
 [node name="PublicButton" type="Button" parent="."]
 texture_filter = 2
 custom_minimum_size = Vector2(295, 0)
+layout_mode = 0
 offset_left = 650.0
 offset_top = 160.0
 offset_right = 945.0
@@ -220,6 +221,7 @@ text = "Public"
 [node name="PrivateButton" type="Button" parent="."]
 texture_filter = 2
 custom_minimum_size = Vector2(295, 0)
+layout_mode = 0
 offset_left = 980.0
 offset_top = 160.0
 offset_right = 1275.0

@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b1dqbrrx0acqx"]
+
+[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="1_ew5sr"]
+[ext_resource type="StyleBox" uid="uid://ejiyo8851ahu" path="res://src/themes/button/theme_hover.tres" id="2_k8ne5"]
+[ext_resource type="StyleBox" uid="uid://8wyb12cf13bi" path="res://src/themes/button/theme.tres" id="3_1706m"]
+[ext_resource type="StyleBox" uid="uid://nmi8gg6oox2x" path="res://src/themes/button/theme_pressed.tres" id="4_i6cup"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl73y"]
+
+[resource]
+Button/font_sizes/font_size = 128
+Button/fonts/font = ExtResource("1_ew5sr")
+Button/styles/hover = ExtResource("2_k8ne5")
+Button/styles/normal = ExtResource("3_1706m")
+Button/styles/pressed = ExtResource("4_i6cup")
+TextEdit/font_sizes/font_size = 128
+TextEdit/fonts/font = ExtResource("1_ew5sr")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_fl73y")

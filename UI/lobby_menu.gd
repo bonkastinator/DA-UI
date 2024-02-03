@@ -15,14 +15,18 @@ var game_key
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_generate_code()
-	if $Player1LineEdit.text == "":
-		$Player1LineEdit.text = "Player1"
-	if $Player2LineEdit.text == "":
-		$Player2LineEdit.text = "Player2"
+	
 		
 	$PrivateButton.button_pressed = true
 	user_prefs = UserPreferences.load_or_create()
 	$Player1LineEdit.text = user_prefs.user_name
+	
+	if user_prefs.user_name == "":
+		$Player1LineEdit.text = "Player1"
+		
+		#TODO: player2.name == "":
+	if $Player2LineEdit.text == "":
+		$Player2LineEdit.text = "Player2"
 	#if user_prefs.user_name:
 		#text = user_prefs.user_name
 		# TODO: spielername zu spielerliste hinzufügen

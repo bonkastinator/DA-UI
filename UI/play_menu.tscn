@@ -1,26 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpujjirrp4tm3"]
+[gd_scene load_steps=7 format=3 uid="uid://dpujjirrp4tm3"]
 
 [ext_resource type="Script" path="res://UI/play_menu.gd" id="1_84pdc"]
-[ext_resource type="FontFile" uid="uid://vmt71xalm4gn" path="res://src/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf" id="1_fburv"]
-[ext_resource type="StyleBox" uid="uid://ejiyo8851ahu" path="res://src/themes/button/theme_hover.tres" id="2_m1t01"]
+[ext_resource type="Theme" uid="uid://b1dqbrrx0acqx" path="res://src/themes/menu_theme.tres" id="1_w4geq"]
 [ext_resource type="Texture2D" uid="uid://c5ntdg8waib0n" path="res://src/testbackground_gray.png" id="2_y28gb"]
-[ext_resource type="StyleBox" uid="uid://8wyb12cf13bi" path="res://src/themes/button/theme.tres" id="3_3eofj"]
 [ext_resource type="Texture2D" uid="uid://boxuyivu7a1dv" path="res://src/sideswipe.png" id="3_4xwm2"]
 [ext_resource type="AudioStream" uid="uid://gygxycxwyss3" path="res://Audio/Sounds/button_hover.wav" id="4_bifvv"]
-[ext_resource type="StyleBox" uid="uid://nmi8gg6oox2x" path="res://src/themes/button/theme_pressed.tres" id="4_yuwv7"]
 [ext_resource type="AudioStream" uid="uid://cfm6srk22m2qq" path="res://Audio/Sounds/best_button_ckick.wav" id="5_2tmk7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl73y"]
-
-[sub_resource type="Theme" id="Theme_epla5"]
-Button/font_sizes/font_size = 128
-Button/fonts/font = ExtResource("1_fburv")
-Button/styles/hover = ExtResource("2_m1t01")
-Button/styles/normal = ExtResource("3_3eofj")
-Button/styles/pressed = ExtResource("4_yuwv7")
-TextEdit/font_sizes/font_size = 128
-TextEdit/fonts/font = ExtResource("1_fburv")
-TextEdit/styles/normal = SubResource("StyleBoxFlat_fl73y")
 
 [node name="PlayMenu" type="Control"]
 layout_mode = 3
@@ -29,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_epla5")
+theme = ExtResource("1_w4geq")
 script = ExtResource("1_84pdc")
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
