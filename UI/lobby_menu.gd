@@ -115,6 +115,7 @@ func _on_copy_key_button_pressed():
 
 func _on_public_button_toggled(toggled_on):
 	if toggled_on:
+		# TODO: send "PUBLIC" instead of key + IP to server
 		$CopyKeyButton.hide()
 		$GeneratedKeyLineEdit.text = ""
 		$PublicButton.scale = Vector2(1.1, 1.1)
@@ -126,6 +127,7 @@ func _on_public_button_toggled(toggled_on):
 
 func _on_private_button_toggled(toggled_on):
 	if toggled_on:
+		# TODO: send key + IP to server
 		$GeneratedKeyLineEdit.text = game_key
 		$PrivateButton.scale = Vector2(1.1, 1.1)
 		$PrivateButton.position = Vector2(975, 155)
