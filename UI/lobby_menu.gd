@@ -11,6 +11,12 @@ enum Fractions {
 var chosen_fraction
 
 var game_key
+var http = HTTPClient.new() # Create the Client.
+var err = 0
+var headers = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +37,23 @@ func _ready():
 		#text = user_prefs.user_name
 		# TODO: spielername zu spielerliste hinzufügen
 	# TODO: verbinden mit container + code + socket
+	
+	err = http.connect_to_host("https://valtonlobbycontainer.trueberryless.org", 80) # Connect to host/port.
+	assert(err == OK) # Make sure connection is OK.
+	
+	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		http.poll()
+		print("Connecting...")
+		
+	assert(http.get_status() == HTTPClient.STATUS_CONNECTED) # Check if the connection was made successfully.
+	
+	var headers = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
+	err = http.request(HTTPClient.METHOD_POST,"/StartSession",headers,game_key)
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -115,11 +138,11 @@ func _on_copy_key_button_pressed():
 
 func _on_public_button_toggled(toggled_on):
 	if toggled_on:
-		# TODO: send "PUBLIC" instead of key + IP to server
 		$CopyKeyButton.hide()
 		$GeneratedKeyLineEdit.text = ""
 		$PublicButton.scale = Vector2(1.1, 1.1)
 		$PublicButton.position = Vector2(645, 155)
+		err = http.request(HTTPClient.METHOD_POST,"/UpdateToPublic",headers,game_key)
 	else:
 		$CopyKeyButton.show()
 		$PublicButton.scale = Vector2(1, 1)
@@ -127,7 +150,6 @@ func _on_public_button_toggled(toggled_on):
 
 func _on_private_button_toggled(toggled_on):
 	if toggled_on:
-		# TODO: send key + IP to server
 		$GeneratedKeyLineEdit.text = game_key
 		$PrivateButton.scale = Vector2(1.1, 1.1)
 		$PrivateButton.position = Vector2(975, 155)
